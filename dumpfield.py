@@ -106,14 +106,15 @@ class dumpfield:
     attrindex = allFieldsNames.index(attrfieldname)
     attrfield = myFields[attrindex]
     aloadfile = QFileDialog.getOpenFileName(None, "Open file dialog","","Text (*.txt)")
-    fileHandle = open (aloadfile, 'r')
+    fileHandle = open(aloadfile, 'r')
     #QMessageBox.information(self.iface.mainWindow(),"Warning",str(curLayer.isEditable()))
-    for fid in [1,2]: 
+    for fid in [0,2]: 
        features={}
        result={}
        features[fid]=QgsFeature()
        curLayer.featureAtId(fid,features[fid])
-       astr = fileHandle.next()
+       astr = unicode(fileHandle.next(),'windows-1251')
+       #astr2 = astr.strip().encode('utf-8')
        features[fid].changeAttribute(attrindex,QVariant(astr.strip()))
        tmp = {}
        tmp[fid] = features[fid].attributeMap()

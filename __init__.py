@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-mVersion = "0.0.3"
+mVersion = "0.0.4"
 def name():
   return "DumpLoadField"
 def description():
