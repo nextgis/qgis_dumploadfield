@@ -3,7 +3,7 @@ mVersion = "0.0.3"
 def name():
   return "DumpLoadField"
 def description():
-  return "Dumps or loads text from/to a selected field"
+  return "Dumps or loads text from/to a selected field from/to a textfile"
 def qgisMinimumVersion(): 
   return "1.0" 
 def version():
