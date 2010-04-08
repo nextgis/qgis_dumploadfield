@@ -15,11 +15,11 @@ class dumpfield:
   def initGui(self):
     self.action = QAction(QIcon(":/plugins/dumpfield/icon.png"), "Dump field", self.iface.mainWindow())
     self.action.setStatusTip("Dumps a field to a textfile")
-    QObject.connect(self.action, SIGNAL("activated()"), self.dumpfield)
+    QObject.connect(self.action, SIGNAL("triggered()"), self.dumpfield)
     self.iface.addPluginToMenu("&Dump and load field", self.action)
     self.action = QAction(QIcon(":/plugins/dumpfield/icon.png"), "Load to a field", self.iface.mainWindow())
     self.action.setStatusTip("Loads text to a field from the textfile")
-    QObject.connect(self.action, SIGNAL("activated()"), self.loadtofield)
+    QObject.connect(self.action, SIGNAL("triggered()"), self.loadtofield)
     self.iface.addPluginToMenu("&Dump and load field", self.action)
   def unload(self):
     self.iface.removePluginMenu("&Dump and load field",self.action)
