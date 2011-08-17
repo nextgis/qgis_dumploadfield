@@ -11,18 +11,21 @@ class dumpfield:
   def __init__(self, iface):
     """Initialize the class"""
     self.iface = iface
-  
+
   def initGui(self):
-    self.action = QAction(QIcon(":/plugins/dumpfield/icon.png"), "Dump field", self.iface.mainWindow())
-    self.action.setStatusTip("Dumps a field to a textfile")
-    QObject.connect(self.action, SIGNAL("triggered()"), self.dumpfield)
-    self.iface.addPluginToMenu("&Dump and load field", self.action)
-    self.action = QAction(QIcon(":/plugins/dumpfield/icon.png"), "Load to a field", self.iface.mainWindow())
-    self.action.setStatusTip("Loads text to a field from the textfile")
-    QObject.connect(self.action, SIGNAL("triggered()"), self.loadtofield)
-    self.iface.addPluginToMenu("&Dump and load field", self.action)
+    self.actionToFile = QAction(QIcon(":/plugins/dumpfield/icon.png"), "Dump field", self.iface.mainWindow())
+    self.actionToFile.setStatusTip("Dumps a field to a textfile")
+    QObject.connect(self.actionToFile, SIGNAL("triggered()"), self.dumpfield)
+    self.iface.addPluginToMenu("&Dump and load field", self.actionToFile)
+
+    self.actionFromFile = QAction(QIcon(":/plugins/dumpfield/icon.png"), "Load to a field", self.iface.mainWindow())
+    self.actionFromFile.setStatusTip("Loads text to a field from the textfile")
+    QObject.connect(self.actionFromFile, SIGNAL("triggered()"), self.loadtofield)
+    self.iface.addPluginToMenu("&Dump and load field", self.actionFromFile)
+
   def unload(self):
-    self.iface.removePluginMenu("&Dump and load field",self.action)
+    self.iface.removePluginMenu("&Dump and load field",self.actionToFile)
+    self.iface.removePluginMenu("&Dump and load field",self.actionFromFile)
 
   def dumpfield(self):
     layersmap=QgsMapLayerRegistry.instance().mapLayers()
@@ -62,7 +65,7 @@ class dumpfield:
     attrindex = allFieldsNames.index(attrfield)
     adumpfile = QFileDialog.getSaveFileName(None, "save file dialog", attrfield +'.txt', "Text (*.txt)")
     fileHandle = open (adumpfile, 'w')
-    for fid in featids: 
+    for fid in featids:
        features={}
        result={}
        features[fid]=QgsFeature()
@@ -108,7 +111,7 @@ class dumpfield:
     aloadfile = QFileDialog.getOpenFileName(None, "Open file dialog","","Text (*.txt)")
     fileHandle = open(aloadfile, 'r')
     #QMessageBox.information(self.iface.mainWindow(),"Warning",str(curLayer.isEditable()))
-    for fid in [0,2]: 
+    for fid in [0,2]:
        features={}
        result={}
        features[fid]=QgsFeature()
@@ -121,6 +124,6 @@ class dumpfield:
        fProvider.changeAttributeValues(tmp)
 
        #bbul = curLayer.commitChanges()
-       #QMessageBox.information(self.iface.mainWindow(),"Warning",str(fid))	   
-       #QMessageBox.information(self.iface.mainWindow(),"Warning",str(bbul))	   
+       #QMessageBox.information(self.iface.mainWindow(),"Warning",str(fid))
+       #QMessageBox.information(self.iface.mainWindow(),"Warning",str(bbul))
     fileHandle.close()
