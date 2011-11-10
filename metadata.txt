@@ -3,5 +3,5 @@ name=DumpLoadField
 description=Dumps or loads text from/to a selected field from/to a textfile
 version=Version 0.0.6
 authorName=Maxim Dubinin, sim@gis-lab.info
-icon=dpsimplify.png
+icon=icon.png
 qgisMinimumVersion=1.0.0
