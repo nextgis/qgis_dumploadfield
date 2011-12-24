@@ -16,16 +16,25 @@ class dumpfield:
     self.actionToFile = QAction(QIcon(":/plugins/dumpfield/icon.png"), "Dump field", self.iface.mainWindow())
     self.actionToFile.setStatusTip("Dumps a field to a textfile")
     QObject.connect(self.actionToFile, SIGNAL("triggered()"), self.dumpfield)
-    self.iface.addPluginToMenu("&Dump and load field", self.actionToFile)
 
     self.actionFromFile = QAction(QIcon(":/plugins/dumpfield/icon.png"), "Load to a field", self.iface.mainWindow())
     self.actionFromFile.setStatusTip("Loads text to a field from the textfile")
     QObject.connect(self.actionFromFile, SIGNAL("triggered()"), self.loadtofield)
-    self.iface.addPluginToMenu("&Dump and load field", self.actionFromFile)
+
+    if hasattr( self.iface, "addPluginToVectorMenu" ):
+      self.iface.addPluginToVectorMenu("&Dump and load field", self.actionFromFile)
+      self.iface.addPluginToVectorMenu("&Dump and load field", self.actionToFile)
+    else:
+      self.iface.addPluginToMenu("&Dump and load field", self.actionFromFile)
+      self.iface.addPluginToMenu("&Dump and load field", self.actionToFile)
 
   def unload(self):
-    self.iface.removePluginMenu("&Dump and load field",self.actionToFile)
-    self.iface.removePluginMenu("&Dump and load field",self.actionFromFile)
+    if hasattr( self.iface, "addPluginToVectorMenu" ):
+      self.iface.removePluginVectorMenu("&Dump and load field",self.actionToFile)
+      self.iface.removePluginVectorMenu("&Dump and load field",self.actionFromFile)
+    else:
+      self.iface.removePluginMenu("&Dump and load field",self.actionToFile)
+      self.iface.removePluginMenu("&Dump and load field",self.actionFromFile)
 
   def dumpfield(self):
     layersmap=QgsMapLayerRegistry.instance().mapLayers()

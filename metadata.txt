@@ -1,7 +1,8 @@
 [general]
 name=DumpLoadField
 description=Dumps or loads text from/to a selected field from/to a textfile
-version=Version 0.0.6
+category=Vector
+version=Version 0.0.7
 authorName=Maxim Dubinin, sim@gis-lab.info
 icon=icon.png
 qgisMinimumVersion=1.0.0

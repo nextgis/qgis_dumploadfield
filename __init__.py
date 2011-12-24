@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
-mVersion = "0.0.6"
+mVersion = "0.0.7"
 def name():
   return "DumpLoadField"
 def description():
   return "Dumps or loads text from/to a selected field from/to a textfile"
+def category():
+  return "Vector"
 def qgisMinimumVersion():
   return "1.0"
 def version():
