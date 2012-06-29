@@ -3,7 +3,7 @@ from PyQt4.QtCore import *
 from PyQt4.QtGui import *
 from qgis.core import *
 
-import resources
+import resources_rc
 from dumpfield_dlgselfield import dlgSelField
 
 class dumpfield:

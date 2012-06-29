@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-mVersion = "0.0.7"
+mVersion = "0.0.8"
 def name():
   return "DumpLoadField"
 def description():
@@ -9,7 +9,7 @@ def category():
 def qgisMinimumVersion():
   return "1.0"
 def version():
-  return mVersion
+  return "0.0.8"
 def authorName():
   return "Maxim Dubinin, sim@gis-lab.info"
 def classFactory(iface):
