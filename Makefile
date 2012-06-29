@@ -45,4 +45,4 @@ package:
 	mv ../dumploadfield.zip .
 
 upload:
-	plugin_uploader.py dumploadfield.zip
+	plugin_uploader_NG.py dumploadfield.zip
