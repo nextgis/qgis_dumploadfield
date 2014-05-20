@@ -1,19 +1,22 @@
 [general]
 name = DumpLoadField
-description = Dumps or loads text from/to a selected field from/to a textfile
+description = Dump or load text from/to a selected field from/to a textfile
 category = Vector
-version = 0.0.8
-qgisMinimumVersion = 1.0.0
+version = 0.1.0
+qgisMinimumVersion = 2.0.0
 
 icon = icon.png
 
-authorName = Maxim Dubinin (NextGIS)
+authorName = Maxim Dubinin
+author = NextGIS
+email = info@nextgis.org
 
 tags = vector, field, dump, load
 
 homepage =
-tracker = http://hub.qgis.org/projects/dumploadfield
-repository =  http://svn.gis-lab.info/dumpfield
+tracker = http://github.com/dumploadfield/issues
+repository =  http://github.com/dumploadfields
+homepage = http://github.com/dumploadfield/
 
 experimental = False
 deprecated = False
