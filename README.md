@@ -1,9 +1,7 @@
 DumpLoadField
 =============
 
-This is QGIS 1.x plugin.
+This is QGIS 2.x plugin.
 
-It dumps or loads text from/to a selected field from/to text file.
-
-QGIS 2.0 and higher is not supported.
+It dumps or loads text values from/to a selected field to/from a text file.
 
