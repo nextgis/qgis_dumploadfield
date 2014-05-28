@@ -4,7 +4,6 @@ from PyQt4.QtGui import *
 class dlgSelField(QDialog):
   def __init__(self, myFieldsNames, parent=None):
     QDialog.__init__(self)
-    print "init"
     gr = QGroupBox(self)
     vbox = QVBoxLayout(gr)
     names = myFieldsNames
