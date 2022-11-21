@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-#******************************************************************************
+# ******************************************************************************
 #
 # DumpLoadField
 # ---------------------------------------------------------
@@ -23,9 +23,9 @@
 # to the Free Software Foundation, 51 Franklin Street, Suite 500 Boston,
 # MA 02110-1335 USA.
 #
-#******************************************************************************
+# ******************************************************************************
 
 
 def classFactory(iface):
-  from dumpfield import dumpfield
-  return dumpfield(iface)
+    from .dumpfield import dumpfield
+    return dumpfield(iface)

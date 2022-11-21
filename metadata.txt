@@ -2,14 +2,18 @@
 name = DumpLoadField
 description = Dump or load text values from/to a selected field from/to a textfile
 category = Vector
-version = 0.2.0
-qgisMinimumVersion = 2.0.0
+version = 0.3.0
+qgisMinimumVersion = 3.0.0
+qgisMaximumVersion = 3.99
 
 icon = icon.png
 
 authorName = Maxim Dubinin
 author = NextGIS
 email = info@nextgis.org
+changelog=
+        0.3:
+            * QGIS 3 support added
 
 tags = vector, field, dump, load
 
