@@ -1,7 +1,7 @@
 [general]
 name = DumpLoadField
-description = Dump or load text values
-about = Dump or load text valuesfrom/to a selected field from/to a textfile
+description = Dump or load text values for a field
+about = Dump or load text values from/to a selected field from/to a textfile. Developed by NextGIS. Any feedback is welcome at https://nextgis.com/contact
 version = 0.3.0
 qgisMinimumVersion = 3.0
 qgisMaximumVersion = 3.99
