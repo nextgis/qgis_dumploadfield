@@ -31,7 +31,7 @@ from qgis.PyQt.QtGui import *
 from qgis.core import *
 from qgis.PyQt.QtWidgets import *
 
-import resources_rc
+from . import resources_rc
 from .dumpfield_dlgselfield import dlgSelField
 
 
