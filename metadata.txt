@@ -12,14 +12,16 @@ authorName = NextGIS
 author = NextGIS
 email = info@nextgis.com
 changelog=
+        0.4:
+            * Fix resources imporrt
         0.3:
             * QGIS 3 support added
 
 tags = vector, field, dump, load
 
-homepage = http://nextgis.com
-tracker = http://github.com/nextgis/qgis_dumploadfield/issues
-repository = http://github.com/nextgis/qgis_dumploadfield
+homepage = https://nextgis.com
+tracker = https://github.com/nextgis/qgis_dumploadfield/issues
+repository = https://github.com/nextgis/qgis_dumploadfield
 
 experimental = False
 deprecated = False
