@@ -41,7 +41,7 @@ class dumpfield:
         self.iface = iface
 
     def initGui(self):
-        self.actionToFile = QAction(QIcon(":/plugins/dumpfield/icon.png"), "Dump field", self.iface.mainWindow())
+        self.actionToFile = QAction(QIcon(":/plugins/dumpfield/icon.png"), "Dump a field", self.iface.mainWindow())
         self.actionToFile.setStatusTip("Dump a field to a textfile")
         self.actionToFile.triggered.connect(self.dumpfield)
 
