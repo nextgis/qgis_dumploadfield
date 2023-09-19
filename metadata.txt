@@ -1,7 +1,9 @@
 [general]
 name = DumpLoadField
-description = Dump or load text values for a field
-about = Dump or load text values from/to a selected field from/to a textfile. Developed by NextGIS. Any feedback is welcome at https://nextgis.com/contact
+description=Dump or load text values for a field
+description[ru]=Дамп или загрузка текстовых значений для поля
+about=Dump or load text values from/to a selected field from/to a textfile. Developed by NextGIS. Any feedback is welcome at https://nextgis.com/contact
+about[ru]=Дамп или загрузка текстовых значений из/в выбранное поле из/в текстовый файл. Разработан компанией NextGIS. Любые отзывы приветствуются на https://nextgis.com/contact.
 version = 0.3.1
 qgisMinimumVersion = 3.0
 qgisMaximumVersion = 3.99
@@ -22,6 +24,8 @@ tags = vector, field, dump, load
 homepage = https://nextgis.com
 tracker = https://github.com/nextgis/qgis_dumploadfield/issues
 repository = https://github.com/nextgis/qgis_dumploadfield
+video=https://youtu.be/gjQCkNLbxUg
+video[ru]=https://youtu.be/5Fjzz1RBvUA
 
 experimental = False
 deprecated = False
