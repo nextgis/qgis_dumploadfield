@@ -7,11 +7,11 @@ QGIS plugins page: https://plugins.qgis.org/plugins/dumploadfield/
 
 ## Dump or load text values from/to a field
 
-![dumploadfield](https://github.com/nextgis/qgis_dumploadfield/assets/101568545/a4fd583a-6eb8-4d86-ac30-3c03f337e5d9)
+![dumploadfield](https://github.com/nextgis/qgis_dumploadfield/assets/101568545/5df716b9-96d3-422d-9fac-6a558c7d7543)
 
 ## YouTube
 -------------
-[![gjQCkNLbxUg](https://github.com/nextgis/qgis_dumploadfield/assets/101568545/1ee80c2e-8270-4a91-998c-4799d2d7398d)(https://youtu.be/gjQCkNLbxUg)
+[![gjQCkNLbxUg](https://github.com/nextgis/qgis_dumploadfield/assets/101568545/1ee80c2e-8270-4a91-998c-4799d2d7398d)](https://youtu.be/gjQCkNLbxUg)
 
 
 License
