@@ -50,41 +50,69 @@ class dumpfield:
         self.__init_translator()
 
     def initGui(self):
-        self.actionToFile = QAction(QIcon(
-            ":/plugins/dumpfield/icon.png"), "Dump a field", self.iface.mainWindow()
+        self.actionToFile = QAction(
+            QIcon(":/plugins/dumpfield/icon.png"),
+            "Dump a field",
+            self.iface.mainWindow(),
         )
         self.actionToFile.setStatusTip("Dump a field to a textfile")
         self.actionToFile.triggered.connect(self.dumpfield)
 
-        self.actionFromFile = QAction(QIcon(
-            ":/plugins/dumpfield/icon.png"), "Load to a field", self.iface.mainWindow()
+        self.actionFromFile = QAction(
+            QIcon(":/plugins/dumpfield/icon.png"),
+            "Load to a field",
+            self.iface.mainWindow(),
         )
-        self.actionFromFile.setStatusTip("Load text to a field from the textfile")
+        self.actionFromFile.setStatusTip(
+            "Load text to a field from the textfile"
+        )
         self.actionFromFile.triggered.connect(self.loadtofield)
 
-        self.actionAbout = QAction(
-            self.tr("About"), self.iface.mainWindow()
-        )
+        self.actionAbout = QAction(self.tr("About"), self.iface.mainWindow())
         self.actionAbout.triggered.connect(self.about)
 
         if hasattr(self.iface, "addPluginToVectorMenu"):
-            self.iface.addPluginToVectorMenu("&Dump and load field", self.actionFromFile)
-            self.iface.addPluginToVectorMenu("&Dump and load field", self.actionToFile)
-            self.iface.addPluginToVectorMenu("&Dump and load field", self.actionAbout)
+            self.iface.addPluginToVectorMenu(
+                "&Dump and load field", self.actionFromFile
+            )
+            self.iface.addPluginToVectorMenu(
+                "&Dump and load field", self.actionToFile
+            )
+            self.iface.addPluginToVectorMenu(
+                "&Dump and load field", self.actionAbout
+            )
         else:
-            self.iface.addPluginToMenu("&Dump and load field", self.actionFromFile)
-            self.iface.addPluginToMenu("&Dump and load field", self.actionToFile)
-            self.iface.addPluginToMenu("&Dump and load field", self.actionAbout)
+            self.iface.addPluginToMenu(
+                "&Dump and load field", self.actionFromFile
+            )
+            self.iface.addPluginToMenu(
+                "&Dump and load field", self.actionToFile
+            )
+            self.iface.addPluginToMenu(
+                "&Dump and load field", self.actionAbout
+            )
 
     def unload(self):
         if hasattr(self.iface, "addPluginToVectorMenu"):
-            self.iface.removePluginVectorMenu("&Dump and load field", self.actionToFile)
-            self.iface.removePluginVectorMenu("&Dump and load field", self.actionFromFile)
-            self.iface.removePluginVectorMenu("&Dump and load field", self.actionAbout)
+            self.iface.removePluginVectorMenu(
+                "&Dump and load field", self.actionToFile
+            )
+            self.iface.removePluginVectorMenu(
+                "&Dump and load field", self.actionFromFile
+            )
+            self.iface.removePluginVectorMenu(
+                "&Dump and load field", self.actionAbout
+            )
         else:
-            self.iface.removePluginMenu("&Dump and load field", self.actionToFile)
-            self.iface.removePluginMenu("&Dump and load field", self.actionFromFile)
-            self.iface.removePluginMenu("&Dump and load field", self.actionAbout)
+            self.iface.removePluginMenu(
+                "&Dump and load field", self.actionToFile
+            )
+            self.iface.removePluginMenu(
+                "&Dump and load field", self.actionFromFile
+            )
+            self.iface.removePluginMenu(
+                "&Dump and load field", self.actionAbout
+            )
 
     def tr(self, message):
         return QCoreApplication.translate(__class__.__name__, message)
@@ -105,20 +133,25 @@ class dumpfield:
             QCoreApplication.installTranslator(translator)
             self._translator = translator  # Should be kept in memory
 
-        add_translator(path.join(
-            self.plugin_dir, 'i18n',
-            'dumploadfield_{}.qm'.format(locale)
-        ))
+        add_translator(
+            path.join(
+                self.plugin_dir, "i18n", "dumploadfield_{}.qm".format(locale)
+            )
+        )
 
     def dumpfield(self):
         curLayer = self.iface.mapCanvas().currentLayer()
-        if (curLayer == None):
+        if curLayer == None:
             infoString = "No layers selected"
-            QMessageBox.information(self.iface.mainWindow(), "Warning", infoString)
+            QMessageBox.information(
+                self.iface.mainWindow(), "Warning", infoString
+            )
             return
-        if (curLayer.type() != curLayer.VectorLayer):
+        if curLayer.type() != curLayer.VectorLayer:
             infoString = "Not a vector layer"
-            QMessageBox.information(self.iface.mainWindow(), "Warning", infoString)
+            QMessageBox.information(
+                self.iface.mainWindow(), "Warning", infoString
+            )
             return
         featids = list(curLayer.getSelectedFeatures())
         # if len(featids) == 0:
@@ -133,7 +166,11 @@ class dumpfield:
             if f.typeName() == "String":
                 myFieldsNames.append(f.name())
         if len(myFieldsNames) == 0:
-            QMessageBox.information(self.iface.mainWindow(), "Warning", "No string field names. Exiting")
+            QMessageBox.information(
+                self.iface.mainWindow(),
+                "Warning",
+                "No string field names. Exiting",
+            )
             return
         elif len(myFieldsNames) == 1:
             attrfield = myFieldsNames[0]
@@ -143,24 +180,30 @@ class dumpfield:
                 attrfield = res.selectedAttr()
             else:
                 return
-        adumpfile = QFileDialog.getSaveFileName(None, "save file dialog", attrfield + '.txt', "Text (*.txt)")[0]
+        adumpfile = QFileDialog.getSaveFileName(
+            None, "save file dialog", attrfield + ".txt", "Text (*.txt)"
+        )[0]
 
         if adumpfile:
-            with open(adumpfile, 'wb') as fileHandle:
+            with open(adumpfile, "wb") as fileHandle:
                 featids = curLayer.getFeatures()
                 for f in featids:
                     attr = f[attrfield]
-                    fileHandle.write(f'{attr}\n'.encode('utf-8'))
+                    fileHandle.write(f"{attr}\n".encode("utf-8"))
 
     def loadtofield(self):
         curLayer = self.iface.mapCanvas().currentLayer()
-        if (curLayer == None):
+        if curLayer == None:
             infoString = "No layers selected"
-            QMessageBox.information(self.iface.mainWindow(), "Warning", infoString)
+            QMessageBox.information(
+                self.iface.mainWindow(), "Warning", infoString
+            )
             return
-        if (curLayer.type() != curLayer.VectorLayer):
+        if curLayer.type() != curLayer.VectorLayer:
             infoString = "Not a vector layer"
-            QMessageBox.information(self.iface.mainWindow(), "Warning", infoString)
+            QMessageBox.information(
+                self.iface.mainWindow(), "Warning", infoString
+            )
             return
         fProvider = curLayer.dataProvider()
         myFields = fProvider.fields()
@@ -169,7 +212,11 @@ class dumpfield:
             if f.typeName() == "String":
                 myFieldsNames.append(f.name())
         if len(myFieldsNames) == 0:
-            QMessageBox.information(self.iface.mainWindow(), "Warning", "No string field names. Exiting")
+            QMessageBox.information(
+                self.iface.mainWindow(),
+                "Warning",
+                "No string field names. Exiting",
+            )
             return
         elif len(myFieldsNames) == 1:
             attrfieldname = myFieldsNames[0]
@@ -180,14 +227,16 @@ class dumpfield:
             else:
                 return
 
-        aloadfile = QFileDialog.getOpenFileName(None, "Open file dialog", "", "Text (*.txt)")[0]
+        aloadfile = QFileDialog.getOpenFileName(
+            None, "Open file dialog", "", "Text (*.txt)"
+        )[0]
 
         if aloadfile:
             curLayer.startEditing()
-            with open(aloadfile, 'rb') as fileHandle:
+            with open(aloadfile, "rb") as fileHandle:
                 for f in curLayer.getFeatures():
-                    astr = unicode(fileHandle.readline(), 'utf-8')
-                    if astr.strip() == 'NULL':
+                    astr = unicode(fileHandle.readline(), "utf-8")
+                    if astr.strip() == "NULL":
                         f[attrfieldname] = None
                     else:
                         f[attrfieldname] = astr.strip()

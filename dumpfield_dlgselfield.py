@@ -11,12 +11,13 @@ class dlgSelField(QDialog):
         names = myFieldsNames
         self.rbl = [QRadioButton(name, gr) for name in names]
         self.rbl[0].setChecked(True)
-        for rb in self.rbl: vbox.addWidget(rb)
+        for rb in self.rbl:
+            vbox.addWidget(rb)
         gr.adjustSize()
 
         hbox = QHBoxLayout()
-        pbnYes = QPushButton('Yes', self)
-        pbnCancel = QPushButton('Cancel', self)
+        pbnYes = QPushButton("Yes", self)
+        pbnCancel = QPushButton("Cancel", self)
         hbox.addWidget(pbnYes)
         hbox.addWidget(pbnCancel)
 

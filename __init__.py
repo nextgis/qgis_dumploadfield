@@ -28,4 +28,5 @@
 
 def classFactory(iface):
     from .dumpfield import dumpfield
+
     return dumpfield(iface)
