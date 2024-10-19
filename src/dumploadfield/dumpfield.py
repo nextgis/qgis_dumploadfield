@@ -51,7 +51,7 @@ class dumpfield:
 
     def initGui(self):
         self.actionToFile = QAction(
-            QIcon(":/plugins/dumpfield/icon.png"),
+            QIcon(":/plugins/dumploadfield/icons/icon.png"),
             "Dump a field",
             self.iface.mainWindow(),
         )
@@ -59,7 +59,7 @@ class dumpfield:
         self.actionToFile.triggered.connect(self.dumpfield)
 
         self.actionFromFile = QAction(
-            QIcon(":/plugins/dumpfield/icon.png"),
+            QIcon(":/plugins/dumploadfield/icons/icon.png"),
             "Load to a field",
             self.iface.mainWindow(),
         )
