@@ -119,7 +119,7 @@ class dumpfield:
 
     def about(self):
         dialog = about_dialog.AboutDialog(os.path.basename(self.plugin_dir))
-        dialog.exec_()
+        dialog.exec()
 
     def __init_translator(self):
         # initialize locale
@@ -176,7 +176,7 @@ class dumpfield:
             attrfield = myFieldsNames[0]
         else:
             res = dlgSelField(myFieldsNames)
-            if res.exec_():
+            if res.exec():
                 attrfield = res.selectedAttr()
             else:
                 return
@@ -222,7 +222,7 @@ class dumpfield:
             attrfieldname = myFieldsNames[0]
         else:
             res = dlgSelField(myFieldsNames)
-            if res.exec_():
+            if res.exec():
                 attrfieldname = res.selectedAttr()
             else:
                 return
