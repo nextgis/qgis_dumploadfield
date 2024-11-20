@@ -4,8 +4,8 @@ description=Dump or load text values for a field
 description[ru]=Дамп или загрузка текстовых значений для поля
 about=Dump or load text values from/to a selected field from/to a textfile. Developed by NextGIS. Any feedback is welcome at https://nextgis.com/contact
 about[ru]=Дамп или загрузка текстовых значений из/в выбранное поле из/в текстовый файл. Разработан компанией NextGIS. Любые отзывы приветствуются на https://nextgis.com/contact.
-version = 0.3.1
-qgisMinimumVersion = 3.0
+version = 0.4.0
+qgisMinimumVersion = 3.22
 qgisMaximumVersion = 3.99
 
 icon = icons/icon.png
@@ -14,9 +14,12 @@ authorName = NextGIS
 author = NextGIS
 email = info@nextgis.com
 changelog=
-        0.4:
+        0.4.0:
+            * Updated the "About plugin" dialog
+            * Added plugin item to help menu
+        0.3.1:
             * Fix resources import
-        0.3:
+        0.3.0:
             * QGIS 3 support added
 
 tags = vector, field, dump, load
