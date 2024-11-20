@@ -92,6 +92,15 @@ class dumpfield:
                 "&Dump and load field", self.actionAbout
             )
 
+        self.__show_help_action = QAction(
+            QIcon(":/plugins/dumploadfield/icons/icon.png"),
+            "DumpLoadField",
+        )
+        self.__show_help_action.triggered.connect(self.about)
+        plugin_help_menu = self.iface.pluginHelpMenu()
+        assert plugin_help_menu is not None
+        plugin_help_menu.addAction(self.__show_help_action)
+
     def unload(self):
         if hasattr(self.iface, "addPluginToVectorMenu"):
             self.iface.removePluginVectorMenu(
